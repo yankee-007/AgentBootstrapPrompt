@@ -18,6 +18,7 @@
 - `docs/design/delivery-options.md`：已确认的文件夹交付方式及使用边界。
 - `docs/design/v0.1-validation.md`：初版结构验证与场景审查的范围和局限。
 - `docs/design/v0.2-validation.md`：远程交付版本的结构验证及在线取读验证方法。
+- `docs/experiments/luna-handoff-20261004.md`：Luna 本地受控中断接力的实际结果、限制和待审核建议。
 
 ## 独立交付包
 
