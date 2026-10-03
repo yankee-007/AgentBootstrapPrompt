@@ -1,0 +1,13 @@
+# 本项目临时输出；不忽略 Markdown 设计材料。
+/tmp/
+/scratch/
+*.tmp
+*.bak
+
+# 本地系统与可能的敏感配置。
+.DS_Store
+Thumbs.db
+.env
+.env.*
+!.env.example
+!.env.sample
