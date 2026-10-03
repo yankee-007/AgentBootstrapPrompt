@@ -2,13 +2,21 @@
 
 Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一份可适配新项目和已有项目的通用初始化 Prompt，为目标项目建立项目记忆与协作体系。
 
-**当前阶段：已提供 v0.1.0 文件夹工具包初版，等待试用和继续迭代。**
+**当前版本：v0.2.0，支持 GitHub 远程入口和本地文件夹，继续试用迭代。**
 
-## 初版交付
+## 直接使用 GitHub 入口
 
-主要交付物为 [agent-project-bootstrap 工具包](agent-project-bootstrap/README.md)，首个 Agent 的唯一入口是 [BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。请提供完整文件夹及目标项目位置，不只发送入口文件。
+将下面的指令交给能够联网读取文件并修改目标项目的 Agent，替换目标路径即可，无需手动下载：
 
-初版包含项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖。它不自动执行，目标项目完成初始化后也不依赖原工具包。
+```text
+请读取并执行 https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/main/agent-project-bootstrap/BOOTSTRAP.md ，目标项目为 <目标项目路径>。
+先将 main 解析为完整 commit SHA，重新读取该提交的入口，所有协议和模板都从同一提交获取。
+保留目标项目既有规范和未提交修改；完成初始化后停止，不开始业务开发。
+```
+
+入口：[BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。详细用法与离线备用方式见 [工具包说明](agent-project-bootstrap/README.md)。读取公开工具包不授权上传目标项目；目标项目初始化后不依赖本仓库。
+
+工具包包含来源读取、项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖，不自动执行。
 
 ## 名称与定位
 
@@ -38,14 +46,14 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一�
 
 ## 已确认的交付方式
 
-本仓库分文件维护设计，主要交付一个完整的 `agent-project-bootstrap/` 文件夹。`BOOTSTRAP.md` 统一协调随包协议与模板，用户无需分别执行初始化 Prompt 和 Git Prompt。
+本仓库分文件维护设计，工具包组织在 `agent-project-bootstrap/` 文件夹内。GitHub 远程入口是主要获取方式，完整文件夹/ZIP 是离线备用；两者共享同一套协议和模板。`BOOTSTRAP.md` 统一协调，用户无需分别执行初始化 Prompt 和 Git Prompt。
 
 首个 Agent 根据目标项目实际情况生成或补充短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，无需反复接收完整初始化 Prompt；不会自动加载入口的工具需要显式指定。
 
-自包含单文件版与特定工具的 Skill 适配暂不交付。完整决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)。验证范围见 [初版核验记录](docs/design/v0.1-validation.md)。
+自包含单文件版与特定工具的 Skill 适配暂不交付。文件夹组织决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，远程规则见 [来源协议](agent-project-bootstrap/protocols/source.md)。验证范围见 [v0.2 核验记录](docs/design/v0.2-validation.md)，历史初版记录见 [v0.1](docs/design/v0.1-validation.md)。
 
 ## 本项目的验证与 Git
 
 当前是 Markdown 文档项目，无应用运行、依赖安装或构建步骤。验证内容为相对链接、文件职责、需求覆盖、示例一致性、状态真实性及 Git diff 检查。
 
-本地 Git 已初始化，分支为 `main`，并已连接用户提供的 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。用户已授权推送本次初始化内容。提交使用用户提供的身份，SSH 私钥保留本机，上传前核验连接和内容。具体策略见 [项目策略](docs/agent/policy.md)，实际交付状态查询 Git。
+本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。用户已授权初始化和本次远程工具包交付。提交使用用户提供的身份，SSH 私钥保留本机，上传前核验连接和内容。具体策略见 [项目策略](docs/agent/policy.md)，实际交付状态查询 Git。
