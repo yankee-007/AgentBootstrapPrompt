@@ -2,7 +2,13 @@
 
 Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一份可适配新项目和已有项目的通用初始化 Prompt，为目标项目建立项目记忆与协作体系。
 
-**当前阶段：设计讨论，尚无最终 Bootstrap Prompt。**
+**当前阶段：已提供 v0.1.0 文件夹工具包初版，等待试用和继续迭代。**
+
+## 初版交付
+
+主要交付物为 [agent-project-bootstrap 工具包](agent-project-bootstrap/README.md)，首个 Agent 的唯一入口是 [BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。请提供完整文件夹及目标项目位置，不只发送入口文件。
+
+初版包含项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖。它不自动执行，目标项目完成初始化后也不依赖原工具包。
 
 ## 名称与定位
 
@@ -30,13 +36,13 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一�
 - [交付形式建议](docs/design/delivery-options.md)
 - [文档结构](docs/architecture.md)
 
-## 推荐的交付方式（待定稿）
+## 已确认的交付方式
 
-本仓库分文件维护设计；对普通使用者，建议最终交付一份自包含的 `BOOTSTRAP.md`。它应包含必要规则、生成要求和精简模板，不依赖本仓库中的未随附文件。
+本仓库分文件维护设计，主要交付一个完整的 `agent-project-bootstrap/` 文件夹。`BOOTSTRAP.md` 统一协调随包协议与模板，用户无需分别执行初始化 Prompt 和 Git Prompt。
 
-用户将其交给第一个 Agent 后，该 Agent 在目标项目中生成短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，无需反复接收完整初始化 Prompt。
+首个 Agent 根据目标项目实际情况生成或补充短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，无需反复接收完整初始化 Prompt；不会自动加载入口的工具需要显式指定。
 
-模块化文件包可作为后续可选交付形式。当前仓库尚未创建上述最终交付物。
+自包含单文件版与特定工具的 Skill 适配暂不交付。完整决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)。验证范围见 [初版核验记录](docs/design/v0.1-validation.md)。
 
 ## 本项目的验证与 Git
 

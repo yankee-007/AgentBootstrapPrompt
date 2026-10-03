@@ -1,0 +1,43 @@
+# {{TASK_ID}}：{{TASK_TITLE}}
+
+## Identity
+
+- 工作状态：{{TASK_STATE}}
+- 更新时间：{{UPDATED_AT_WITH_TIMEZONE}}
+- Last Actor：{{LAST_ACTOR_OR_UNKNOWN}}（仅用于追溯，不表示锁或活跃会话）
+
+## Requirement
+
+{{TASK_REQUIREMENT_SCOPE_AND_ACCEPTANCE}}
+
+完成标准需明确是否要求用户接受、CI 或合入目标分支，不从已提交或已推送自动推导完成。
+
+## Baseline 与 Workspace
+
+{{TASK_BASELINE_BRANCH_AND_EXISTING_CHANGES}}
+
+{{TASK_DEPENDENCIES_AND_INTEGRATION_TARGET}}
+
+## 上次核验快照
+
+{{TASK_OBSERVED_REVISION_AND_CHANGES}}
+
+{{TASK_COMPLETED_AND_REMAINING}}
+
+## 关键发现
+
+{{TASK_FACTS_ASSUMPTIONS_AND_RELEVANT_FAILURES}}
+
+## 验证与人工验收
+
+{{TASK_VERIFICATION_EVIDENCE_AND_GAPS}}
+
+## 当前阻碍与下一步
+
+{{TASK_BLOCKERS_AND_NEXT_STEP}}
+
+## 交接或结束
+
+{{TASK_RECOVERY_OR_CLOSURE}}
+
+文档保存、代码本地保存、另一台电脑可取得代码是不同事实。最新 commit/push 结果以 Git 查询为准，不依赖私有 Session 或本机路径恢复。

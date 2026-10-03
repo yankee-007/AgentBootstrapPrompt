@@ -1,0 +1,35 @@
+# 项目上下文：{{PROJECT_NAME}}
+
+## 目标与当前阶段
+
+{{PROJECT_PURPOSE_AND_STAGE}}
+
+## 技术形态与核心能力
+
+{{STACK_AND_CAPABILITIES}}
+
+## 核心模块与入口
+
+{{MODULE_MAP}}
+
+当前结构详见 [架构](docs/architecture.md)。这里只保留导航与摘要。
+
+## 业务规则、持久化与长期约束
+
+{{RULES_DATA_AND_CONSTRAINTS}}
+
+## 已知问题与易回归区域
+
+{{KNOWN_LIMITATIONS}}
+
+具体任务进度见 [任务索引](docs/tasks/README.md)，长期决策理由见 [决策索引](docs/decisions/README.md)。已解决问题不持续堆积在本文件。
+
+## 开发与验证入口
+
+{{DEVELOPMENT_AND_VALIDATION_ENTRYPOINTS}}
+
+## 事实边界
+
+{{EVIDENCE_AND_UNKNOWNS}}
+
+本文描述当前检出版本的已知情况，不自动代表其他分支或生产部署。修改相关行为时检查本文是否需更新；不要仅刷新日期。

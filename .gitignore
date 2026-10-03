@@ -1,6 +1,7 @@
 # 本项目临时输出；不忽略 Markdown 设计材料。
 /tmp/
 /scratch/
+/artifacts/
 *.tmp
 *.bak
 

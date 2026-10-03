@@ -1,0 +1,19 @@
+# 当前架构
+
+## 系统边界与模块
+
+{{ARCHITECTURE_MODULES}}
+
+## 关键数据流与调用关系
+
+{{ARCHITECTURE_FLOWS}}
+
+## 状态、持久化与外部依赖
+
+{{ARCHITECTURE_DATA_AND_DEPENDENCIES}}
+
+## 验证依据与未确定内容
+
+{{ARCHITECTURE_EVIDENCE}}
+
+本文仅记录真实存在的当前结构。空项目可明确尚未形成架构，不要求预设 UI、服务、模型或存储层。长期选择的理由见 [决策记录](decisions/README.md)。

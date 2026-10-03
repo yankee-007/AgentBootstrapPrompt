@@ -1,6 +1,10 @@
 # 决策记录索引
 
-当前没有正式 ADR。现有需求与待审核建议分别见 `../design/requirements.md` 和 `../design/review.md`。
+| 决策 | 状态 | 领域 |
+| --- | --- | --- |
+| [文件夹工具包交付](ADR-20261003-folder-delivery.md) | Accepted | 交付、入口、跨 Agent 使用 |
+
+既有需求与其他待审核建议分别见 `../design/requirements.md` 和 `../design/review.md`。
 
 仅当真实发生具有长期影响的取舍时创建 ADR，例如跨模块结构、长期接口、兼容性、持久化模型或重要替代方案选择。常规措辞修改和初始化文件创建不逐一建立 ADR。
 
