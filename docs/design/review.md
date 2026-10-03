@@ -48,11 +48,11 @@ GIT_POLICY、REMOTE_POLICY、TASK_TRACKING_POLICY、PARALLEL_DEVELOPMENT_POLICY�
 
 这仍是候选集合，应继续精简。Handoff 复用任务记录，不另设重复策略。所有默认值需在最终设计中确认。
 
-## 最终 Prompt 验证场景
+## 体系与工具包验证场景
 
 空项目、既有治理项目、monorepo 子目录、已有 staged/unstaged 修改、突然中断、跨电脑、并行 ID 创建、共享资源、远端分叉、无法 fetch、首次上传历史含敏感内容、UI 待验收、重复 Bootstrap、无 Git 或无执行权限。
 
-这些是待实施的设计审查场景，不表示已经执行通过。
+这些是第一轮提出的设计审查场景清单，不表示全部已经执行通过。当前版本的实际核验范围见 [v0.2 核验记录](v0.2-validation.md) 和 [受控接力实验](../experiments/luna-handoff-20261004.md)。
 
 ## 已核对的官方依据
 

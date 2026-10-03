@@ -1,8 +1,8 @@
 # Agent 项目启动协议
 
-Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一份可适配新项目和已有项目的通用初始化 Prompt，为目标项目建立项目记忆与协作体系。
+Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Coding Agent 项目记忆与协作体系，并通过初始化工具包为新项目和已有项目建立这套体系。交付物由协议、模板和单一执行入口组成，不再是一份 Prompt。
 
-**当前版本：v0.2.0，支持 GitHub 远程入口和本地文件夹，继续试用迭代。**
+**当前版本：v0.2.0，已初步完成，进入试用、验证与迭代阶段。支持 GitHub 远程入口和本地文件夹。**
 
 ## 直接使用 GitHub 入口
 
@@ -20,7 +20,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一�
 
 ## 名称与定位
 
-- **Agent 项目启动协议**：本项目的名称，通过初始化 Prompt 帮助 Coding Agent 建立目标项目的工作基础。
+- **Agent 项目启动协议**：初始化工具包的名称，通过 `BOOTSTRAP.md` 入口、按需协议和模板帮助 Coding Agent 建立目标项目的工作基础。
 - **项目记忆与协作体系**：初始化后建立的机制，日常简称“项目记忆”。它涵盖项目上下文、设计决策、任务进度、中断恢复、跨 Agent 交接，以及工作规则、验证要求与 Git 协作。
 
 “项目持久化”只表达信息保存，不能完整描述上述职责，因此统一使用“项目记忆与协作体系”来称呼这套机制。
@@ -46,9 +46,9 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一�
 
 ## 已确认的交付方式
 
-本仓库分文件维护设计，工具包组织在 `agent-project-bootstrap/` 文件夹内。GitHub 远程入口是主要获取方式，完整文件夹/ZIP 是离线备用；两者共享同一套协议和模板。`BOOTSTRAP.md` 统一协调，用户无需分别执行初始化 Prompt 和 Git Prompt。
+本仓库维护体系的设计、实现与验证记录，工具包组织在 `agent-project-bootstrap/` 文件夹内。GitHub 远程入口是主要获取方式，完整文件夹/ZIP 是离线备用；两者共享同一套协议和模板。`BOOTSTRAP.md` 统一协调初始化与 Git 工作。
 
-首个 Agent 根据目标项目实际情况生成或补充短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，无需反复接收完整初始化 Prompt；不会自动加载入口的工具需要显式指定。
+首个 Agent 根据目标项目实际情况生成或补充短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，按需恢复项目记忆；不会自动加载入口的工具需要显式指定。
 
 自包含单文件版与特定工具的 Skill 适配暂不交付。文件夹组织决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，远程规则见 [来源协议](agent-project-bootstrap/protocols/source.md)。验证范围见 [v0.2 核验记录](docs/design/v0.2-validation.md)，历史初版记录见 [v0.1](docs/design/v0.1-validation.md)。
 
@@ -56,4 +56,6 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）用于设计一�
 
 当前是 Markdown 文档项目，无应用运行、依赖安装或构建步骤。验证内容为相对链接、文件职责、需求覆盖、示例一致性、状态真实性及 Git diff 检查。
 
-本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。用户已授权初始化和本次远程工具包交付。提交使用用户提供的身份，SSH 私钥保留本机，上传前核验连接和内容。具体策略见 [项目策略](docs/agent/policy.md)，实际交付状态查询 Git。
+v0.2.0 的结构与远程取读核验已完成，另有一次 [Luna 同机受控接力实验](docs/experiments/luna-handoff-20261004.md)；实验发现生成协议裁剪丢失任务规范，仍待优化。随机崩溃、跨电脑与跨模型接力尚未验证，初步完成不等于全面验收。
+
+本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。此前授权的初始化和 v0.2.0 远程工具包交付已完成；后续上传按实际授权范围处理。提交使用用户提供的身份，SSH 私钥保留本机，上传前核验连接和内容。具体策略见 [项目策略](docs/agent/policy.md)，实际交付状态查询 Git。
