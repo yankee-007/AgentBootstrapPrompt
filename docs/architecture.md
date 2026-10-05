@@ -19,11 +19,13 @@
 - `docs/design/delivery-options.md`：已确认的文件夹交付方式及使用边界。
 - `docs/design/v0.1-validation.md`：初版结构验证与场景审查的范围和局限。
 - `docs/design/v0.2-validation.md`：远程交付版本的结构验证及在线取读验证方法。
+- `docs/design/v0.3-validation.md`：本轮最低语义、策略、生成与恢复验证的实际结果及边界。
 - `docs/experiments/luna-handoff-20261004.md`：Luna 本地受控中断接力的实际结果、限制和待审核建议。
 
 ## 独立交付包
 
 - `agent-project-bootstrap/README.md`：给人的使用说明。
+- `agent-project-bootstrap/CHANGELOG.md`：版本变更、固定来源与明确升级方式。
 - `agent-project-bootstrap/BOOTSTRAP.md`：首个 Agent 的唯一执行入口。
 - `agent-project-bootstrap/protocols/`：初始化期间按需读取的来源、发现、记忆和 Git 协议。
 - `agent-project-bootstrap/templates/`：生成到目标项目的长期记忆模板，使用 `.md.template` 后缀避免自动发现。
@@ -39,4 +41,4 @@
 
 用户讨论与澄清 → 更新需求或审查结论 → 按授权修改工具包并验证 → 更新当前任务 → 有长期影响时更新项目上下文或建立 ADR。仅更新本项目记忆时，不重新初始化本仓库或改动目标模板。
 
-v0.2.0 以 GitHub 固定提交取读为主要获取方式，完整文件夹/ZIP 作为离线备用，目标项目生成后不依赖本仓库。当前没有自动拼装、Skill 安装或后台同步机制。
+v0.3.0 延续 GitHub 固定提交取读和完整文件夹/ZIP 离线备用，增加最低语义检查及合并职责映射，目标项目生成后不依赖本仓库。当前没有自动拼装、Skill 安装或后台同步机制。

@@ -4,6 +4,6 @@
 
 | Task ID | 标题 | 工作状态 | 文件 |
 | --- | --- | --- | --- |
-| TASK-20261003-5de5ecfa19b3 | 项目记忆与协作体系迭代 | active | [任务记录](TASK-20261003-5de5ecfa19b3-bootstrap-prompt-design.md) |
+| TASK-20261003-5de5ecfa19b3 | 项目记忆与协作体系迭代 | verifying | [任务记录](TASK-20261003-5de5ecfa19b3-bootstrap-prompt-design.md) |
 
 完成任务从此表移除，默认保留任务文件原路径。已知 Task ID 时直接读取对应文件，无需加载全部任务。

@@ -1,6 +1,6 @@
 # 项目协作策略
 
-协议来源版本：Agent Project Bootstrap 0.2.0。版本仅用于识别和明确升级，不自动重跑初始化。
+协议来源版本：Agent Project Bootstrap 0.3.0。版本仅用于识别和明确升级，不自动重跑初始化。
 
 {{BOOTSTRAP_SOURCE}}
 
@@ -26,13 +26,27 @@
 
 `REMOTE_POLICY=disabled` 时不因自动推送策略而执行远端操作；恢复提交也不得绕过项目明确禁止提交的约定。明确的用户新指示可调整相关范围，但无回复或任务文本不能代替授权。
 
+具体冲突按以下规则处理，不要求用户重答整张表：
+
+| 条件 | 实际行为 |
+| --- | --- |
+| TASK_TRACKING_POLICY=disabled | 不创建/更新任务记录和活动表；初始化可保留注明停用的导航章节，既有记录原样保留；仍核对文件并报告恢复入口及能力下降 |
+| TASK_TRACKING_POLICY=always / adaptive | 分别为所有实际任务 / 满足复杂度条件的任务保留完整最低记录；不登记模板示例 |
+| GIT_POLICY=disabled 或项目禁止 Git 写入 | 不初始化、暂存、提交或推送；许可的只读核对和文件保存可继续 |
+| AUTO_COMMIT_POLICY=disabled | 不自动创建普通或恢复提交；RECOVERY_COMMIT_POLICY=on-handoff 不能覆盖禁令 |
+| AUTO_COMMIT_POLICY=ask 或 RECOVERY_COMMIT_POLICY=ask | 相应提交须有适用明确授权；恢复提交同时满足两者，已有授权不重复询问 |
+| RECOVERY_COMMIT_POLICY=disabled | 不自动创建恢复提交，普通提交仍按其策略判断 |
+| REMOTE_POLICY=disabled 或 AUTO_PUSH_POLICY=disabled | 不自动推送；前者同时禁用其他远端操作，后者不替代远端读取策略 |
+
+GIT_POLICY 可显式设为 `disabled`；启用 Git 时仍遵循既有项目检测/初始化约定。关闭提交不阻止安全文件保存，关闭推送不意味着另一台电脑已取得代码。无法解释的其他配置只阻塞相关动作，不采用较宽松取值。
+
 ## 策略依据与操作范围
 
 {{POLICY_SOURCE_AND_OVERRIDES}}
 
 {{REMOTE_AUTHORIZATION}}
 
-授权记录只记录用户或有效项目约定明确允许的范围，至少能定位实际远端、允许分支、允许内容及已知推送副作用。未授权时明确写“待确认”；有登录能力不等于有操作授权。
+授权记录只记录用户或有效项目约定明确允许的范围，至少能定位实际远端、允许分支、允许内容、适用任务/阶段、已知推送副作用及授权依据。单次交付结束后不自动延伸至下一轮；持续授权明确记录其边界。未授权时明确写“待确认”；有登录能力不等于有操作授权。已有适用授权直接使用，不重复询问。
 
 ## 项目入口与验证方式
 

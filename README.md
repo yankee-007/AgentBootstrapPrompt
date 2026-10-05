@@ -2,7 +2,7 @@
 
 Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Coding Agent 项目记忆与协作体系，并通过初始化工具包为新项目和已有项目建立这套体系。交付物由协议、模板和单一执行入口组成，不再是一份 Prompt。
 
-**当前版本：v0.2.0，已初步完成，进入试用、验证与迭代阶段。支持 GitHub 远程入口和本地文件夹。**
+**当前版本：v0.3.0，按优化清单迭代，仍处于试用与验证阶段。支持 GitHub 远程入口和本地文件夹。**
 
 ## 直接使用 GitHub 入口
 
@@ -41,6 +41,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 - [活动任务](docs/tasks/README.md)
 - [既有需求与结论](docs/design/requirements.md)
 - [待审核的设计审查](docs/design/review.md)
+- [优化清单与实施状态](docs/design/optimization-backlog.md)
 - [交付形式建议](docs/design/delivery-options.md)
 - [文档结构](docs/architecture.md)
 
@@ -50,12 +51,12 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 首个 Agent 根据目标项目实际情况生成或补充短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，按需恢复项目记忆；不会自动加载入口的工具需要显式指定。
 
-自包含单文件版与特定工具的 Skill 适配暂不交付。文件夹组织决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，远程规则见 [来源协议](agent-project-bootstrap/protocols/source.md)。验证范围见 [v0.2 核验记录](docs/design/v0.2-validation.md)，历史初版记录见 [v0.1](docs/design/v0.1-validation.md)。
+自包含单文件版与特定工具的 Skill 适配暂不交付。文件夹组织决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，远程规则见 [来源协议](agent-project-bootstrap/protocols/source.md)，版本差异与升级见 [CHANGELOG](agent-project-bootstrap/CHANGELOG.md)。当前验证范围见 [v0.3 核验记录](docs/design/v0.3-validation.md)，历史记录见 [v0.2](docs/design/v0.2-validation.md) 和 [v0.1](docs/design/v0.1-validation.md)。
 
 ## 本项目的验证与 Git
 
 当前是 Markdown 文档项目，无应用运行、依赖安装或构建步骤。验证内容为相对链接、文件职责、需求覆盖、示例一致性、状态真实性及 Git diff 检查。
 
-v0.2.0 的结构与远程取读核验已完成，另有一次 [Luna 同机受控接力实验](docs/experiments/luna-handoff-20261004.md)；实验发现生成协议裁剪丢失任务规范，仍待优化。随机崩溃、跨电脑与跨模型接力尚未验证，初步完成不等于全面验收。
+v0.2.0 已完成结构与远程取读核验；[Luna 同机受控接力实验](docs/experiments/luna-handoff-20261004.md)发现生成协议裁剪丢失任务规范。v0.3.0 定义不可裁剪语义并检查实际输出，同时补齐恢复摘要、策略优先级和部分初始化恢复。实际生成/接手检查见本版本核验记录；随机崩溃、跨电脑与不同产品自动加载仍未验证，初步完成不等于全面验收。
 
-本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。此前授权的初始化和 v0.2.0 远程工具包交付已完成；后续上传按实际授权范围处理。提交使用用户提供的身份，SSH 私钥保留本机，上传前核验连接和内容。具体策略见 [项目策略](docs/agent/policy.md)，实际交付状态查询 Git。
+本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。2026-10-05 用户已授权本轮优化成果上传，范围见 [项目策略](docs/agent/policy.md)，不自动延伸至后续任务。提交使用已有真实身份，上传前核验目标和内容；实际交付状态查询 Git。

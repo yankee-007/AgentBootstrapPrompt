@@ -16,6 +16,8 @@
 
 {{TASK_BASELINE_BRANCH_AND_EXISTING_CHANGES}}
 
+记录起点 commit 或无提交状态，分别说明原有 staged、unstaged、untracked 边界及相关同文件混合修改；不复制无关或敏感 diff。
+
 {{TASK_DEPENDENCIES_AND_INTEGRATION_TARGET}}
 
 ## 上次核验快照
@@ -31,6 +33,8 @@
 ## 验证与人工验收
 
 {{TASK_VERIFICATION_EVIDENCE_AND_GAPS}}
+
+每项证据绑定检查范围、对应版本/工作区状态与环境，未运行和未知明确列出；实现改变后不沿用不适用的旧通过/人工接受结论。
 
 ## 当前阻碍与下一步
 
