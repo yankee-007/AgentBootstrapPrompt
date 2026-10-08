@@ -16,7 +16,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 入口：[BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。详细用法与离线备用方式见 [工具包说明](agent-project-bootstrap/README.md)。读取公开工具包不授权上传目标项目；目标项目初始化后不依赖本仓库。
 
-当前版本可从上述 `main` 入口取得，执行时固定完整 SHA。历史 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)只对应该历史提交；依赖继续从同一 SHA 读取。
+需要固定当前交付版本时使用 [v0.3.1 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4842e09a78f297040055b4945696ba194b305550/agent-project-bootstrap/BOOTSTRAP.md)。`main` 用于发现当前版本，执行时固定完整 SHA；依赖继续从同一 SHA 读取。历史 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)仍只对应原历史提交。
 
 工具包包含来源读取、项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖，不自动执行。
 
