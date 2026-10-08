@@ -2,7 +2,7 @@
 
 Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Coding Agent 项目记忆与协作体系，并通过初始化工具包为新项目和已有项目建立这套体系。交付物由协议、模板和单一执行入口组成，不再是一份 Prompt。
 
-**当前版本：v0.3.0，按优化清单迭代，仍处于试用与验证阶段。支持 GitHub 远程入口和本地文件夹。**
+**当前版本：v0.3.1，推送请求默认保存整个项目当前状态，仍处于试用与验证阶段。支持 GitHub 远程入口和本地文件夹。**
 
 ## 直接使用 GitHub 入口
 
@@ -16,7 +16,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 入口：[BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。详细用法与离线备用方式见 [工具包说明](agent-project-bootstrap/README.md)。读取公开工具包不授权上传目标项目；目标项目初始化后不依赖本仓库。
 
-需要复现本轮已核验版本时使用 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)。`main` 用于发现当前版本，固定入口只对应该提交；依赖继续从同一 SHA 读取。
+当前版本可从上述 `main` 入口取得，执行时固定完整 SHA。历史 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)只对应该历史提交；依赖继续从同一 SHA 读取。
 
 工具包包含来源读取、项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖，不自动执行。
 
@@ -39,6 +39,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 ## 从哪里继续
 
+- [协作体系文件详解：各文件内容与中断后的检查方法](协作体系文件详解.md)
 - [当前项目状态](PROJECT_CONTEXT.md)
 - [活动任务](docs/tasks/README.md)
 - [既有需求与结论](docs/design/requirements.md)
@@ -53,7 +54,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 首个 Agent 根据目标项目实际情况生成或补充短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，按需恢复项目记忆；不会自动加载入口的工具需要显式指定。
 
-自包含单文件版与特定工具的 Skill 适配暂不交付。文件夹组织决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，远程规则见 [来源协议](agent-project-bootstrap/protocols/source.md)，版本差异与升级见 [CHANGELOG](agent-project-bootstrap/CHANGELOG.md)。当前验证范围见 [v0.3 核验记录](docs/design/v0.3-validation.md)，历史记录见 [v0.2](docs/design/v0.2-validation.md) 和 [v0.1](docs/design/v0.1-validation.md)。
+自包含单文件版与特定工具的 Skill 适配暂不交付。文件夹组织决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，远程规则见 [来源协议](agent-project-bootstrap/protocols/source.md)，版本差异与升级见 [CHANGELOG](agent-project-bootstrap/CHANGELOG.md)。v0.3.1 的规则调整与交付见 [任务记录](docs/tasks/TASK-20261009-9ac64778a0c9-project-state-push.md)，历史核验记录见 [v0.3](docs/design/v0.3-validation.md)、[v0.2](docs/design/v0.2-validation.md) 和 [v0.1](docs/design/v0.1-validation.md)。
 
 ## 本项目的验证与 Git
 
@@ -61,4 +62,4 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 v0.2.0 已完成结构与远程取读核验；[Luna 同机受控接力实验](docs/experiments/luna-handoff-20261004.md)发现生成协议裁剪丢失任务规范。v0.3.0 定义不可裁剪语义并检查实际输出，同时补齐恢复摘要、策略优先级和部分初始化恢复。实际生成/接手检查见本版本核验记录；随机崩溃、跨电脑与不同产品自动加载仍未验证，初步完成不等于全面验收。
 
-本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。2026-10-05 用户已授权本轮优化成果上传，范围见 [项目策略](docs/agent/policy.md)，不自动延伸至后续任务。提交使用已有真实身份，上传前核验目标和内容；实际交付状态查询 Git。
+本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。2026-10-09 用户要求推送保存整个项目当前状态：收到推送请求后，包含已有修改、项目记忆、任务文件及未忽略的新文件，未完成或未验收内容也可备份，不以测试和人工验收通过为门槛。沿用已确认目标，保留必要的凭据保护和正常 Git 操作边界，具体见 [项目策略](docs/agent/policy.md) 和 [Git 协议](docs/agent/git.md)。实际交付状态查询 Git。
