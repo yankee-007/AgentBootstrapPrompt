@@ -2,7 +2,7 @@
 
 Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Coding Agent 项目记忆与协作体系，并通过初始化工具包为新项目和已有项目建立这套体系。交付物由协议、模板和单一执行入口组成，不再是一份 Prompt。
 
-**当前版本：v0.3.1，推送请求默认保存整个项目当前状态，仍处于试用与验证阶段。支持 GitHub 远程入口和本地文件夹。**
+**当前版本：v0.3.2，仅通过 GitHub 入口交付，推送请求默认保存整个项目当前状态，仍处于试用与验证阶段。**
 
 ## 直接使用 GitHub 入口
 
@@ -14,9 +14,9 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 保留目标项目既有规范和未提交修改；完成初始化后停止，不开始业务开发。
 ```
 
-入口：[BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。详细用法与离线备用方式见 [工具包说明](agent-project-bootstrap/README.md)。读取公开工具包不授权上传目标项目；目标项目初始化后不依赖本仓库。
+入口：[BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。详细用法见 [工具包说明](agent-project-bootstrap/README.md)。读取公开工具包不授权上传目标项目；目标项目初始化后不依赖本仓库。
 
-需要固定当前交付版本时使用 [v0.3.1 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4842e09a78f297040055b4945696ba194b305550/agent-project-bootstrap/BOOTSTRAP.md)。`main` 用于发现当前版本，执行时固定完整 SHA；依赖继续从同一 SHA 读取。历史 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)仍只对应原历史提交。
+`main` 用于发现当前版本，执行时固定完整 SHA；依赖继续从同一 SHA 读取。历史 [v0.3.1 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4842e09a78f297040055b4945696ba194b305550/agent-project-bootstrap/BOOTSTRAP.md)和 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)只对应各自历史提交。
 
 工具包包含来源读取、项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖，不自动执行。
 
@@ -50,11 +50,11 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 ## 已确认的交付方式
 
-本仓库维护体系的设计、实现与验证记录，工具包组织在 `agent-project-bootstrap/` 文件夹内。GitHub 远程入口是主要获取方式，完整文件夹/ZIP 是离线备用；两者共享同一套协议和模板。`BOOTSTRAP.md` 统一协调初始化与 Git 工作。
+本仓库维护体系的设计、实现与验证记录，工具包源码组织在 `agent-project-bootstrap/` 文件夹内，仅通过 GitHub 入口交付，不生成或维护离线 ZIP。`BOOTSTRAP.md` 统一协调初始化与 Git 工作。
 
 首个 Agent 根据目标项目实际情况生成或补充短 `AGENTS.md`、项目上下文、任务索引和按需加载的协议。后续 Agent 读取目标仓库的入口，按需恢复项目记忆；不会自动加载入口的工具需要显式指定。
 
-自包含单文件版与特定工具的 Skill 适配暂不交付。文件夹组织决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，远程规则见 [来源协议](agent-project-bootstrap/protocols/source.md)，版本差异与升级见 [CHANGELOG](agent-project-bootstrap/CHANGELOG.md)。v0.3.1 的规则调整与交付见 [任务记录](docs/tasks/TASK-20261009-9ac64778a0c9-project-state-push.md)，历史核验记录见 [v0.3](docs/design/v0.3-validation.md)、[v0.2](docs/design/v0.2-validation.md) 和 [v0.1](docs/design/v0.1-validation.md)。
+自包含单文件版与特定工具的 Skill 适配暂不交付。源码文件夹组织的历史决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，当前 GitHub 读取规则见 [来源协议](agent-project-bootstrap/protocols/source.md)，版本差异与升级见 [CHANGELOG](agent-project-bootstrap/CHANGELOG.md)。v0.3.1/v0.3.2 的规则调整与交付见 [任务记录](docs/tasks/TASK-20261009-9ac64778a0c9-project-state-push.md)，历史核验记录见 [v0.3](docs/design/v0.3-validation.md)、[v0.2](docs/design/v0.2-validation.md) 和 [v0.1](docs/design/v0.1-validation.md)。
 
 ## 本项目的验证与 Git
 
