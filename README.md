@@ -2,7 +2,7 @@
 
 Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Coding Agent 项目记忆与协作体系，并通过初始化工具包为新项目和已有项目建立这套体系。交付物由协议、模板和单一执行入口组成，不再是一份 Prompt。
 
-**当前版本：v0.3.2，仅通过 GitHub 入口交付，推送请求默认保存整个项目当前状态，仍处于试用与验证阶段。**
+**当前版本：v0.4.0，仅通过 GitHub 入口交付；后续独立修改任务默认使用分支与 worktree、串行 squash 集成，仍处于试用与验证阶段。**
 
 ## 直接使用 GitHub 入口
 
@@ -16,7 +16,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 入口：[BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。详细用法见 [工具包说明](agent-project-bootstrap/README.md)。读取公开工具包不授权上传目标项目；目标项目初始化后不依赖本仓库。
 
-需要固定当前交付版本时使用 [v0.3.2 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/33edd49fe6cb1b9b0c1c6c3aeca670b30dbb74bc/agent-project-bootstrap/BOOTSTRAP.md)。`main` 用于发现当前版本，执行时固定完整 SHA；依赖继续从同一 SHA 读取。历史 [v0.3.1 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4842e09a78f297040055b4945696ba194b305550/agent-project-bootstrap/BOOTSTRAP.md)和 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)只对应各自历史提交。
+`main` 用于发现当前版本，执行时固定完整 SHA；依赖继续从同一 SHA 读取。本轮 v0.4.0 固定入口在源版本保存后记录，当前交付结果见 [本轮任务](docs/tasks/TASK-20261010-7b0d9e2a64f1-task-worktree-delivery.md)。历史 [v0.3.2 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/33edd49fe6cb1b9b0c1c6c3aeca670b30dbb74bc/agent-project-bootstrap/BOOTSTRAP.md)、[v0.3.1 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4842e09a78f297040055b4945696ba194b305550/agent-project-bootstrap/BOOTSTRAP.md)和 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)只对应各自历史提交。
 
 工具包包含来源读取、项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖，不自动执行。
 
@@ -33,7 +33,8 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 - Repository as Persistent Memory + Session as Working Memory。
 - 使用 Task Registry + Per-Task Handoff 管理复杂任务。
-- 默认单 Agent；显式并行时隔离工作区。
+- 默认单 Agent；后续独立修改任务先建分支与 worktree，即使只有一个 Session；补充消息和接力沿用任务。
+- main 或既有集成分支只接收成果，串行集成、默认 squash；对话结束不自动合并，完成核验后清理任务工作区。
 - Git 本地版本控制与可选远端服务解耦。
 - 按需加载、职责分离，避免重复和过期文档。
 
@@ -56,10 +57,12 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 自包含单文件版与特定工具的 Skill 适配暂不交付。源码文件夹组织的历史决策见 [ADR](docs/decisions/ADR-20261003-folder-delivery.md)，当前 GitHub 读取规则见 [来源协议](agent-project-bootstrap/protocols/source.md)，版本差异与升级见 [CHANGELOG](agent-project-bootstrap/CHANGELOG.md)。v0.3.1/v0.3.2 的规则调整与交付见 [任务记录](docs/tasks/TASK-20261009-9ac64778a0c9-project-state-push.md)，历史核验记录见 [v0.3](docs/design/v0.3-validation.md)、[v0.2](docs/design/v0.2-validation.md) 和 [v0.1](docs/design/v0.1-validation.md)。
 
+v0.4.0 的任务隔离、异步加入、依赖、串行集成、squash 清理与多工作区备份见 [工具包说明](agent-project-bootstrap/README.md)及 [更新任务](docs/tasks/TASK-20261010-7b0d9e2a64f1-task-worktree-delivery.md)。没有后台锁或自动合并服务；已初始化项目不自动升级，既有规则优先。
+
 ## 本项目的验证与 Git
 
 当前是 Markdown 文档项目，无应用运行、依赖安装或构建步骤。验证内容为相对链接、文件职责、需求覆盖、示例一致性、状态真实性及 Git diff 检查。
 
 v0.2.0 已完成结构与远程取读核验；[Luna 同机受控接力实验](docs/experiments/luna-handoff-20261004.md)发现生成协议裁剪丢失任务规范。v0.3.0 定义不可裁剪语义并检查实际输出，同时补齐恢复摘要、策略优先级和部分初始化恢复。实际生成/接手检查见本版本核验记录；随机崩溃、跨电脑与不同产品自动加载仍未验证，初步完成不等于全面验收。
 
-本地分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)。2026-10-09 用户要求推送保存整个项目当前状态：收到推送请求后，包含已有修改、项目记忆、任务文件及未忽略的新文件，未完成或未验收内容也可备份，不以测试和人工验收通过为门槛。沿用已确认目标，保留必要的凭据保护和正常 Git 操作边界，具体见 [项目策略](docs/agent/policy.md) 和 [Git 协议](docs/agent/git.md)。实际交付状态查询 Git。
+集成分支为 `main`，连接 [GitHub 仓库](https://github.com/yankee-007/AgentBootstrapPrompt)，修改任务使用各自分支/worktree。2026-10-09 用户要求推送保存整个项目当前状态：收到推送请求后，包含已有修改、项目记忆、任务文件及未忽略的新文件，未完成或未验收内容也可备份，不以测试和人工验收通过为门槛。多工作区时分别核实实际覆盖，未完成任务不为备份提前集成，仅推送 main 不代表其他任务已远端备份。沿用已确认目标及分支范围，具体见 [项目策略](docs/agent/policy.md) 和 [Git 协议](docs/agent/git.md)。实际交付状态查询 Git。

@@ -1,6 +1,6 @@
 # 项目协作策略
 
-协议来源版本：Agent Project Bootstrap 0.3.2。版本仅用于识别和明确升级，不自动重跑初始化。
+协议来源版本：Agent Project Bootstrap 0.4.0。版本仅用于识别和明确升级，不自动重跑初始化。
 
 {{BOOTSTRAP_SOURCE}}
 
@@ -15,14 +15,18 @@
 | GIT_POLICY | detect-and-init | 已有 Git 复用；无 Git 且范围明确、无其他 VCS 约束时本地初始化 |
 | REMOTE_POLICY | ask-once | 首次确认目标和分支；后续用户要求推送时沿用已确认目标，不按任务或文件重复询问；可选 existing-only、private-auto、disabled |
 | TASK_TRACKING_POLICY | adaptive | 复杂、跨阶段、易中断、并行或需接力的任务建立记录；简单修改可不建 |
-| PARALLEL_DEVELOPMENT_POLICY | single-writer | 默认串行；显式并行时独立工作区和分支，另核对共享资源 |
+| PARALLEL_DEVELOPMENT_POLICY | task-worktree | 独立修改任务先建分支与 worktree，即使只有一个 Session；每个工作区一个写入者，集成分支仅接收成果 |
 | AUTO_COMMIT_POLICY | verified-owned-units | 日常自动提交归属清楚且符合该逻辑单元验证要求的内容；用户明确要求推送时按项目快照规则保存当前状态 |
 | RECOVERY_COMMIT_POLICY | on-handoff | 需交接时可保存明确标注的未完成工作；分支和副作用须符合项目约定 |
 | AUTO_PUSH_POLICY | on-request | 用户要求推送时提交并同步整个项目可纳入 Git 的当前状态，包括已有修改和未完成内容；测试或人工验收不是备份门槛 |
 | HUMAN_VERIFICATION_POLICY | criteria-based | 根据验收标准、主观要求和 Agent 验证能力决定是否需要人工确认 |
-| INTEGRATION_POLICY | follow-existing | 沿用既有集成方式；未知时不自动合入共享目标分支 |
+| INTEGRATION_POLICY | squash-on-completion | 满足集成条件后向已确认目标串行 squash，按任务形成成果提交；既有集成约定或用户限定优先 |
 
 可将提交、恢复提交、推送策略改为 `ask` 或 `disabled`；任务跟踪可改为 `always` 或 `disabled`。关闭跟踪后必须说明跨 Session 恢复能力下降，不能仍承诺完整交接。`existing-only` 禁止新建远端但不自动授予上传权限；`private-auto` 仅在服务、账号/组织、名称与范围已确认时自动创建私有仓库。未识别的取值或相互冲突的配置需澄清，不静默采用更宽松策略。
+
+`task-worktree` 是工作区安排，不自动委派其他 Agent，也不要求新建 Session。独立任务按需求范围识别，澄清、修正和未完成任务的接力沿用原任务；纯讨论/查询/审查通常不建分支。轻量任务可以不建 Task 文件，但仍使用独立任务工作区，以唯一分支和交付摘要追溯。已有 `single-writer` 保留其串行、按需隔离方式；已有 `follow-existing` 保留项目集成方式，不由初始化自动改成新默认。
+
+集成目标采用项目已确认的 main 或其他集成分支，不重命名既有分支；目标未知时只暂停集成。`squash-on-completion` 默认将集成纳入修改任务的交付条件，但用户要求仅开发、评审或等待接受时遵循其范围。该策略仅允许集成当前任务，不允许合并未知任务、绕过提交/验收禁令、上传或部署。
 
 `on-request` 在用户明确要求推送时保存项目快照，该请求覆盖必要的快照提交和整个项目当前内容，不限本轮任务，不逐项申请批准；遵循既有忽略规则并保护凭据。没有推送请求或持续授权时不自行上传。若项目已有 `authorized-milestones`，保留其按已授权且验证的里程碑自动推送的约定，不因初始化重置；用户明确改为按请求备份时再调整。
 
@@ -35,11 +39,16 @@
 | TASK_TRACKING_POLICY=disabled | 不创建/更新任务记录和活动表；初始化可保留注明停用的导航章节，既有记录原样保留；仍核对文件并报告恢复入口及能力下降 |
 | TASK_TRACKING_POLICY=always / adaptive | 分别为所有实际任务 / 满足复杂度条件的任务保留完整最低记录；不登记模板示例 |
 | GIT_POLICY=disabled 或项目禁止 Git 写入 | 不初始化、暂存、提交或推送；许可的只读核对和文件保存可继续 |
+| task-worktree 但无可用 Git/基线，或禁止创建分支/worktree | 不伪造隔离或偷偷改为共享并行；说明限制，只有确认单写入者且允许时才在现有目录保存文件，恢复 Git 条件后再安排隔离 |
+| TASK_TRACKING_POLICY=disabled / adaptive 的轻量任务 | 不因工作区隔离强制创建 Task/活动表；仍核对唯一任务分支、基线、目标与依赖，并在许可的提交及交付摘要中追溯 |
 | AUTO_COMMIT_POLICY=disabled | 不自动创建普通或恢复提交；RECOVERY_COMMIT_POLICY=on-handoff 不能覆盖禁令 |
+| AUTO_COMMIT_POLICY=disabled / ask，或任务尚未满足集成条件 | 不由 squash 默认值绕过约定；保留任务分支和成果，已有适用提交/集成授权直接使用 |
 | AUTO_COMMIT_POLICY=ask 或 RECOVERY_COMMIT_POLICY=ask | 相应提交须有适用明确授权；恢复提交同时满足两者，已有授权不重复询问 |
 | RECOVERY_COMMIT_POLICY=disabled | 不自动创建恢复提交，普通提交仍按其策略判断 |
 | REMOTE_POLICY=disabled 或 AUTO_PUSH_POLICY=disabled | 不自动推送；前者同时禁用其他远端操作，后者不替代远端读取策略 |
 | AUTO_PUSH_POLICY=on-request 且 Git/提交/远端允许 | 明确推送请求下保存全部已跟踪文件的当前内容及删除、未忽略的新文件和已有修改；无需测试或人工验收先通过，任务完成状态单独判断 |
+
+多 worktree 的项目备份需逐个说明实际覆盖：各任务写入者协调保存快照，未完成内容保留在任务分支，不为备份提前合入集成分支。任务备份分支须在已确认的同仓库 ref 范围内；若仅允许推送 main，其他任务可先保存本地并报告尚未远端备份，不能将“main 已推送”描述为全部任务已备份。内容授权不逐文件重问，缺少的分支范围只影响相应上传。
 
 GIT_POLICY 可显式设为 `disabled`；启用 Git 时仍遵循既有项目检测/初始化约定。关闭提交不阻止安全文件保存，关闭推送不意味着另一台电脑已取得代码。无法解释的其他配置只阻塞相关动作，不采用较宽松取值。
 
@@ -58,6 +67,8 @@ GIT_POLICY 可显式设为 `disabled`；启用 Git 时仍遵循既有项目检�
 {{VALIDATION_COMMANDS_AND_LIMITS}}
 
 {{BRANCH_AND_INTEGRATION_CONVENTIONS}}
+
+本节适配时记录实际集成分支、任务分支命名、串行集成的执行方式及允许的远端分支范围。最轻量方式是指定一个集成执行者，无需常驻服务；多个 Session 自行集成时需要可验证的互斥执行方式，Markdown 状态、Task Owner、超时和 `git worktree lock` 都不能代替写入锁。
 
 ## 文档路径映射
 
