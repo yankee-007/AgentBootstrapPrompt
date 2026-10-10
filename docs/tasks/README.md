@@ -4,6 +4,7 @@
 
 | Task ID | 标题 | 工作状态 | 文件 |
 | --- | --- | --- | --- |
+| TASK-20261010-306a3f0e9592 | StudentManagement 项目记忆差异报告 | verifying | [任务](TASK-20261010-306a3f0e9592-student-memory-diff-report.md) |
 
 完成任务从此表移除，默认保留任务文件原路径。已知 Task ID 时直接读取对应文件，无需加载全部任务。
 

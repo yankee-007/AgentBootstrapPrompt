@@ -21,6 +21,7 @@
 - `docs/design/v0.1-validation.md`：初版结构验证与场景审查的范围和局限。
 - `docs/design/v0.2-validation.md`：远程交付版本的结构验证及在线取读验证方法。
 - `docs/design/v0.3-validation.md`：v0.3.0 最低语义、策略、生成与恢复验证的实际结果及边界。
+- `docs/design/student-management-memory-diff-20261010.md`：StudentManagement 与 v0.4.0 的只读差异分析，区分来源一致、既有策略保留和旧流程差异；建议不构成目标项目执行规则。
 - `docs/experiments/luna-handoff-20261004.md`：Luna 本地受控中断接力的实际结果、限制和待审核建议。
 
 ## 独立交付包

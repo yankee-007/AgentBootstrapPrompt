@@ -48,6 +48,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 - [优化清单与实施状态](docs/design/optimization-backlog.md)
 - [交付形式建议](docs/design/delivery-options.md)
 - [文档结构](docs/architecture.md)
+- [StudentManagement 项目记忆与 v0.4.0 差异报告](docs/design/student-management-memory-diff-20261010.md)
 - [任务分支与 worktree 的 React / Remotion 演示](demos/task-worktree-remotion/README.md)
 
 ## 已确认的交付方式
