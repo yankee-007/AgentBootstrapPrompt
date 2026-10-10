@@ -45,7 +45,7 @@
 
 ## 最近完成的迭代
 
-[StudentManagement 项目记忆差异分析](docs/design/student-management-memory-diff-20261010.md)：只读核对确认目标项目已升级至 v0.4.0，固定来源与本次本地工具包的 17 个文件一致；9 项策略中 3 项保留旧值，另有固定 fetch 流程及后续 main 开发适配差异。报告区分协议补缺与采用新版默认行为，未修改目标项目或工具包，也不作为真实执行验收；报告保存与本仓库 GitHub 交付进度见 [本轮任务](docs/tasks/TASK-20261010-306a3f0e9592-student-memory-diff-report.md)，实际提交和远端状态查询 Git。
+[StudentManagement 项目记忆差异分析](docs/design/student-management-memory-diff-20261010.md)：只读核对确认目标项目已升级至 v0.4.0，固定来源与本次本地工具包的 17 个文件一致；9 项策略中 3 项保留旧值，另有固定 fetch 流程及后续 main 开发适配差异。报告区分协议补缺与采用新版默认行为，未修改目标项目或工具包，也不作为真实执行验收。报告已串行 squash 到本仓库 main 并同步 GitHub，本轮推送包含此前本地主线演示；Task done 并移出活动表，具体证据与分支保留范围见 [本轮任务](docs/tasks/TASK-20261010-306a3f0e9592-student-memory-diff-report.md)，实际最新提交和远端状态查询 Git。
 
 [任务分支与 worktree 交付更新](docs/tasks/TASK-20261010-7b0d9e2a64f1-task-worktree-delivery.md)：v0.4.0 文档检查、squash 集成和 GitHub 交付完成，固定来源提交 `d1afe0ae2471dbbbff94fc9183225a73e97c0eb1` 的 17 个工具包文件在线读取与本地一致。登录阻碍已解决，Task 标记 done 并移出活动索引；本任务工作区已归档、本地任务分支已清理，过程提交保留可恢复引用。真实多 Agent 并发尚未验证；实际最新提交和远端状态查询 Git。
 
