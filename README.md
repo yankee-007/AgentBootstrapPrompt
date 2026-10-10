@@ -48,6 +48,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 - [优化清单与实施状态](docs/design/optimization-backlog.md)
 - [交付形式建议](docs/design/delivery-options.md)
 - [文档结构](docs/architecture.md)
+- [任务分支与 worktree 的 React / Remotion 演示](demos/task-worktree-remotion/README.md)
 
 ## 已确认的交付方式
 
@@ -61,7 +62,7 @@ v0.4.0 的任务隔离、异步加入、依赖、串行集成、squash 清理与
 
 ## 本项目的验证与 Git
 
-当前是 Markdown 文档项目，无应用运行、依赖安装或构建步骤。验证内容为相对链接、文件职责、需求覆盖、示例一致性、状态真实性及 Git diff 检查。
+工具包主体是 Markdown 文档，验证内容为相对链接、文件职责、需求覆盖、示例一致性、状态真实性及 Git diff 检查。独立辅助目录 `demos/task-worktree-remotion/` 提供 React + TypeScript / Remotion 概念演示，有单独的依赖、类型检查、构建和视频导出步骤，不影响 Bootstrap 初始化。
 
 v0.2.0 已完成结构与远程取读核验；[Luna 同机受控接力实验](docs/experiments/luna-handoff-20261004.md)发现生成协议裁剪丢失任务规范。v0.3.0 定义不可裁剪语义并检查实际输出，同时补齐恢复摘要、策略优先级和部分初始化恢复。实际生成/接手检查见本版本核验记录；随机崩溃、跨电脑与不同产品自动加载仍未验证，初步完成不等于全面验收。
 

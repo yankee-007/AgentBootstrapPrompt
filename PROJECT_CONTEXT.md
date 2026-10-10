@@ -19,9 +19,10 @@
 
 ## 项目形态
 
-- 技术形态：Markdown 文档项目，无业务代码或应用依赖。
+- 技术形态：Markdown 协议与模板项目；另有独立 React + TypeScript / Remotion 概念演示，演示依赖不进入 Bootstrap 工具包或目标项目。
 - 持久化：工作目录内的文档与本地 Git 历史；远端同步需另有授权。
 - 文档关系见 `docs/architecture.md`。
+- [任务工作区演示](demos/task-worktree-remotion/README.md)提供 64 秒动画与章节播放器；实际多 Agent 并发可靠性仍需另行验证，动画不是运行证据。
 
 ## 已确认的约束
 

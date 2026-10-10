@@ -1,6 +1,6 @@
 # 当前文档架构
 
-本项目维护已初步完成的项目记忆与协作体系及初始化工具包，是 Markdown 协议、模板与验证记录仓库，没有 UI、后端、数据库或构建流水线。以下描述当前结构。
+本项目维护已初步完成的项目记忆与协作体系及初始化工具包，主体是 Markdown 协议、模板与验证记录。另有独立的 React + TypeScript / Remotion 辅助演示，没有业务后端、数据库或部署流水线。以下描述当前结构。
 
 ## 工作规则与项目状态
 
@@ -30,6 +30,11 @@
 - `agent-project-bootstrap/BOOTSTRAP.md`：首个 Agent 的唯一执行入口。
 - `agent-project-bootstrap/protocols/`：初始化期间按需读取的来源、发现、记忆和 Git 协议。
 - `agent-project-bootstrap/templates/`：生成到目标项目的长期记忆模板，使用 `.md.template` 后缀避免自动发现。
+
+## 辅助演示
+
+- `demos/task-worktree-remotion/`：独立 React + TypeScript / Remotion 项目，网页播放器和 MP4 导出复用同一个帧驱动动画组件。展示任务 A 先开始、任务 B 后加入、不同工作区修改同名文件、串行 squash 和清理。
+- 依赖、构建结果和视频产物按忽略规则保留本地；源码、锁文件及运行说明纳入 Git。演示不执行真实 Git 操作，不作为真实并发验证，也不进入 Bootstrap 生成结果。
 
 ## 任务与决策
 
