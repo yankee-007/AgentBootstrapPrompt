@@ -8,7 +8,7 @@
 
 - 项目记忆与协作体系已初步完成，当前进入试用、验证与迭代阶段。用户于 2026-10-04 要求将本项目记忆同步到这一定位。
 - 本仓库自身已建立项目上下文、工作协议、任务记录和决策索引；同时维护面向目标项目的初始化工具包。
-- 当前本地工具包 v0.4.0 位于 `agent-project-bootstrap/`，入口为 `BOOTSTRAP.md`；已检查并集成，GitHub 同步暂受登录凭据阻碍。仍仅通过 GitHub 入口交付，读取时固定完整 SHA 并按需加载同版本文件，目标项目生成后独立于工具包。后续独立修改任务默认 task-worktree，集成目标仅接收成果并串行 squash；既有目标项目不自动升级。
+- 当前工具包 v0.4.0 位于 `agent-project-bootstrap/`，入口为 `BOOTSTRAP.md`；已完成文档检查、串行 squash 集成、GitHub 推送及固定来源 17 文件一致性核对。仅通过 GitHub 入口交付，读取时固定完整 SHA 并按需加载同版本文件，目标项目生成后独立于工具包。后续独立修改任务默认 task-worktree，集成目标仅接收成果并串行 squash；既有目标项目不自动升级。
 - v0.2.0 远程交付已完成，结构及固定版本在线取读核验见 [核验记录](docs/design/v0.2-validation.md)。提交及远端现状仍以 Git 查询为准。
 - 初步完成不代表所有默认策略已逐项验收或已完成全面跨 Agent 运行验证；单文件版与 Skill 适配暂缓。
 - 已完成一次 Luna 同机受控检查点接力，项目 7 项测试及独立验收 12 项通过；发现生成协议裁剪丢失任务规范。范围与建议见 [实验报告](docs/experiments/luna-handoff-20261004.md)，随机崩溃、跨电脑与跨模型仍未验证。
@@ -44,7 +44,7 @@
 
 ## 最近完成的迭代
 
-[任务分支与 worktree 交付更新](docs/tasks/TASK-20261010-7b0d9e2a64f1-task-worktree-delivery.md)：v0.4.0 本地文档检查和 squash 集成完成，来源提交 `d1afe0ae2471dbbbff94fc9183225a73e97c0eb1`；远端同步等待可用 GitHub 登录。任务保留 verifying 和活动行，不宣称交付完成，实际提交和远端状态查询 Git。
+[任务分支与 worktree 交付更新](docs/tasks/TASK-20261010-7b0d9e2a64f1-task-worktree-delivery.md)：v0.4.0 文档检查、squash 集成和 GitHub 交付完成，固定来源提交 `d1afe0ae2471dbbbff94fc9183225a73e97c0eb1` 的 17 个工具包文件在线读取与本地一致。登录阻碍已解决，Task 标记 done 并移出活动索引；本任务工作区已归档、本地任务分支已清理，过程提交保留可恢复引用。真实多 Agent 并发尚未验证；实际最新提交和远端状态查询 Git。
 
 [按请求推送整个项目当前状态](docs/tasks/TASK-20261009-9ac64778a0c9-project-state-push.md)：v0.3.2 GitHub 交付调整完成，Task 标记 done 并移出活动索引，文件保留。历史固定工具包来源提交 `33edd49fe6cb1b9b0c1c6c3aeca670b30dbb74bc` 对应 v0.3.2，`4842e09a78f297040055b4945696ba194b305550` 对应 v0.3.1，最新状态查询 Git。
 

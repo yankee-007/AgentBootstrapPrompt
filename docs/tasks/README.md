@@ -4,8 +4,7 @@
 
 | Task ID | 标题 | 工作状态 | 文件 |
 | --- | --- | --- | --- |
-| TASK-20261010-7b0d9e2a64f1 | 任务分支与 worktree 交付更新 | verifying | [任务](TASK-20261010-7b0d9e2a64f1-task-worktree-delivery.md) |
 
 完成任务从此表移除，默认保留任务文件原路径。已知 Task ID 时直接读取对应文件，无需加载全部任务。
 
-最近完成：[项目快照推送及 v0.3.2 GitHub 交付调整](TASK-20261009-9ac64778a0c9-project-state-push.md)。此链接是历史导航，不表示活动任务。
+最近完成：[任务分支与 worktree 的 v0.4.0 交付更新](TASK-20261010-7b0d9e2a64f1-task-worktree-delivery.md)。此前完成：[项目快照推送及 v0.3.2 GitHub 交付调整](TASK-20261009-9ac64778a0c9-project-state-push.md)。这些链接是历史导航，不表示活动任务。
