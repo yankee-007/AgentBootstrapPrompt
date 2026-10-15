@@ -4,6 +4,7 @@
 
 | Task ID | 标题 | 工作状态 | 文件 |
 | --- | --- | --- | --- |
+| TASK-20261016-a7c392e6b501 | v0.5 风险驱动执行与 GitHub 交付 | verifying | [任务](TASK-20261016-a7c392e6b501-v05-risk-driven-execution.md) |
 
 完成任务从此表移除，默认保留任务文件原路径。已知 Task ID 时直接读取对应文件，无需加载全部任务。
 

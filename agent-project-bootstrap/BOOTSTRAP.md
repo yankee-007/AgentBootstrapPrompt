@@ -1,6 +1,6 @@
 # Agent 项目启动协议：执行入口
 
-工具包版本：0.4.0。你当前的任务是初始化指定目标项目的项目记忆与协作体系。仅在用户明确要求执行初始化时运行；阅读或审查此文件本身不构成执行授权。
+工具包版本：0.5.0。你当前的任务是初始化指定目标项目的项目记忆与协作体系。仅在用户明确要求执行初始化时运行；阅读或审查此文件本身不构成执行授权。
 
 ## 0. 确定范围
 
@@ -33,6 +33,7 @@
 | [templates/docs/tasks/README.md.template](templates/docs/tasks/README.md.template) | 活动任务索引 |
 | [templates/docs/tasks/TASK.md.template](templates/docs/tasks/TASK.md.template) | 按需实例化的任务记录 |
 | [templates/docs/decisions/README.md.template](templates/docs/decisions/README.md.template) | ADR 门槛与索引 |
+| [templates/docs/experiments/execution-observation.md.template](templates/docs/experiments/execution-observation.md.template) | 显式启用采样时才读取、实例化的耗时与安全结果观测 |
 
 缺文件时报告具体缺项，保留已完成结果，不凭记忆虚构缺失协议或静默继续相关步骤。
 
@@ -46,11 +47,13 @@
 
 按记忆协议逐项生成或最小补充。模板中的 `{{NAME}}` 是适配点，必须替换为真实信息、明确未知或不适用说明；不能原样遗留，也不能为填满模板而编造事实。
 
-目标项目需要短入口、当前上下文、架构入口、有效策略、工作/Git 协议、任务与决策索引。已有等价文档时通过路径映射复用。仅有真实复杂任务或重要决策时才建立 Task 或 ADR；不得把模板示例登记成真实记录。
+目标项目需要短入口、当前上下文、架构入口、有效策略、工作/Git 协议、任务与决策索引。已有等价文档时通过路径映射复用。Task 按有效跟踪策略在有真实任务时建立，ADR 仅记录真实重要决策；不得把模板示例登记成真实记录。
 
 目标文件不得依赖 `PACKAGE_ROOT`、远程工具包、其 templates/protocols 路径或初始化 Agent 的私有会话。所有长期规则必须落入目标项目可取得的文件。项目策略可以记录来源版本和固定提交链接供追溯，但它不是后续 Session 的必读依赖。
 
 适配时必须保留 memory 协议的最低语义集合。可以缩短说明、复用或合并等价文档，不能删掉任务身份、策略条件、修改归属和交付边界。重跑时先列出各职责的已完成、缺失和未知状态，只补必要部分；不因文件存在而认定已完成，也不重置已有策略。
+
+v0.5.0 的后续执行规则须落入目标项目：有限只读侦察、已有任务/环境复用、按风险检查与升级；不改变 task-worktree 默认。观测默认不采样，只有明确启用时读取观测模板并记录实际范围/路径；无采样也保留 workflow 的自包含观测规则，不给普通任务增加额外启动依赖。
 
 ## 4. Git 与验证
 

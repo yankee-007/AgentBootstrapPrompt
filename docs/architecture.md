@@ -21,6 +21,7 @@
 - `docs/design/v0.1-validation.md`：初版结构验证与场景审查的范围和局限。
 - `docs/design/v0.2-validation.md`：远程交付版本的结构验证及在线取读验证方法。
 - `docs/design/v0.3-validation.md`：v0.3.0 最低语义、策略、生成与恢复验证的实际结果及边界。
+- `docs/design/v0.5-validation.md`：v0.5.0 观测、快速路径和默认隔离的文档检查及验证边界；不代表真实任务性能数据。
 - `docs/design/student-management-memory-diff-20261010.md`：StudentManagement 与 v0.4.0 的只读差异分析，区分来源一致、既有策略保留和旧流程差异；建议不构成目标项目执行规则。
 - `docs/experiments/luna-handoff-20261004.md`：Luna 本地受控中断接力的实际结果、限制和待审核建议。
 
@@ -31,6 +32,7 @@
 - `agent-project-bootstrap/BOOTSTRAP.md`：首个 Agent 的唯一执行入口。
 - `agent-project-bootstrap/protocols/`：初始化期间按需读取的来源、发现、记忆和 Git 协议。
 - `agent-project-bootstrap/templates/`：生成到目标项目的长期记忆模板，使用 `.md.template` 后缀避免自动发现。
+- `agent-project-bootstrap/templates/docs/experiments/execution-observation.md.template`：按需观测记录；仅显式采样时实例化，不成为普通 Session 的必读文件或强制 Task。
 
 ## 辅助演示
 
@@ -47,4 +49,4 @@
 
 用户讨论与澄清 → 更新需求或审查结论 → 按授权修改工具包并验证 → 更新当前任务 → 有长期影响时更新项目上下文或建立 ADR。仅更新本项目记忆时，不重新初始化本仓库或改动目标模板。
 
-v0.4.0 仅通过 GitHub 固定提交取读交付，保留最低语义检查及合并职责映射；后续独立修改任务默认分支/worktree，集成分支仅接收成果、串行 squash，并区分任务备份与集成。目标项目生成后不依赖本仓库。当前没有离线 ZIP、自动拼装、Skill 安装、执行层锁或后台合并/同步机制。
+v0.5.0 仅通过 GitHub 固定提交取读交付，保留最低语义及合并职责映射。执行路径为有限只读侦察、已有任务/环境复用或按策略建立边界、按风险实施/验证、保存/集成/交付；默认分支/worktree 和串行 squash 不变，任务备份与集成分开。观测默认不采样，启用时记录阶段成本及质量结果，20 对真实任务尚未采集。目标项目生成后不依赖本仓库。当前没有自适应隔离、离线 ZIP、自动拼装、Skill 安装、执行层锁或后台合并/同步机制。
