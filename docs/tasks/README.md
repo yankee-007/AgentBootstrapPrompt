@@ -4,11 +4,12 @@
 
 | Task ID | 标题 | 工作状态 | 文件 |
 | --- | --- | --- | --- |
-| TASK-20261016-a7c392e6b501 | v0.5 风险驱动执行与 GitHub 交付 | verifying | [任务](TASK-20261016-a7c392e6b501-v05-risk-driven-execution.md) |
 
 完成任务从此表移除，默认保留任务文件原路径。已知 Task ID 时直接读取对应文件，无需加载全部任务。
 
-最近完成：[StudentManagement 项目记忆差异报告](TASK-20261010-306a3f0e9592-student-memory-diff-report.md)。此链接是历史导航，不表示活动任务。
+最近完成：[v0.5 风险驱动执行与 GitHub 交付](TASK-20261016-a7c392e6b501-v05-risk-driven-execution.md)。此链接是历史导航，不表示活动任务。
+
+此前完成：[StudentManagement 项目记忆差异报告](TASK-20261010-306a3f0e9592-student-memory-diff-report.md)。此链接是历史导航，不表示活动任务。
 
 此前完成：[任务工作区 Remotion 演示](TASK-20261010-6a812f73d4e9-remotion-demo.md)。此链接是历史导航，不表示活动任务。
 

@@ -2,7 +2,7 @@
 
 Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Coding Agent 项目记忆与协作体系，并通过初始化工具包为新项目和已有项目建立这套体系。交付物由协议、模板和单一执行入口组成，不再是一份 Prompt。
 
-**当前版本：v0.5.0，新增按需耗时观测与轻量执行路径，保留默认 Worktree 隔离，处于试用与验证阶段。**
+**当前版本：v0.5.0，已通过 GitHub 交付并核对固定版本文件；新增按需耗时观测与轻量执行路径，保留默认 Worktree 隔离，处于试用与验证阶段。**
 
 ## 直接使用 GitHub 入口
 
@@ -16,7 +16,7 @@ Agent Project Bootstrap（仓库名：`AgentBootstrapPrompt`）维护通用 Codi
 
 入口：[BOOTSTRAP.md](agent-project-bootstrap/BOOTSTRAP.md)。详细用法见 [工具包说明](agent-project-bootstrap/README.md)。读取公开工具包不授权上传目标项目；目标项目初始化后不依赖本仓库。
 
-`main` 用于发现远端当前版本，执行时固定完整 SHA；依赖继续从同一 SHA 读取。v0.5.0 的检查范围与交付记录见 [本轮任务](docs/tasks/TASK-20261016-a7c392e6b501-v05-risk-driven-execution.md)和 [核验记录](docs/design/v0.5-validation.md)，实际最新提交与远端状态查询 Git。历史 [v0.4.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/d1afe0ae2471dbbbff94fc9183225a73e97c0eb1/agent-project-bootstrap/BOOTSTRAP.md)及同提交的 17 个工具包文件已在线核对一致；[v0.3.2 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/33edd49fe6cb1b9b0c1c6c3aeca670b30dbb74bc/agent-project-bootstrap/BOOTSTRAP.md)、[v0.3.1 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4842e09a78f297040055b4945696ba194b305550/agent-project-bootstrap/BOOTSTRAP.md)和 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)只对应各自历史提交。
+`main` 用于发现远端当前版本，执行时固定完整 SHA；依赖继续从同一 SHA 读取。[v0.5.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4c9d54e49fb9537a0beed5eb5dd6e2484e5d9bdc/agent-project-bootstrap/BOOTSTRAP.md)及同提交的 18 个工具包文件已在线读取并与本地 Git 内容逐一比对一致。检查范围与交付记录见 [本轮任务](docs/tasks/TASK-20261016-a7c392e6b501-v05-risk-driven-execution.md)和 [核验记录](docs/design/v0.5-validation.md)，实际最新提交与远端状态查询 Git。历史 [v0.4.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/d1afe0ae2471dbbbff94fc9183225a73e97c0eb1/agent-project-bootstrap/BOOTSTRAP.md)及同提交的 17 个工具包文件已在线核对一致；[v0.3.2 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/33edd49fe6cb1b9b0c1c6c3aeca670b30dbb74bc/agent-project-bootstrap/BOOTSTRAP.md)、[v0.3.1 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/4842e09a78f297040055b4945696ba194b305550/agent-project-bootstrap/BOOTSTRAP.md)和 [v0.3.0 固定入口](https://raw.githubusercontent.com/yankee-007/AgentBootstrapPrompt/2f8570f9208d4f239a582c1b7d6b8bc4714658bb/agent-project-bootstrap/BOOTSTRAP.md)只对应各自历史提交。
 
 工具包包含来源读取、项目识别、记忆生成、Git 协议和目标文件模板，无安装器或 Skill 依赖，不自动执行。
 
